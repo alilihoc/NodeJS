@@ -1,0 +1,22 @@
+<% for(var i=0; i<customer.length; i++) {%>
+    <div><%= customer[i].name %></div>
+    <div><%= customer[i].address %></div>
+    <div><%= customer[i].city %></div>
+    <div><%= customer[i].state_province %></div>
+    <div><%= customer[i].postal_code %></div>
+    <div><%= customer[i].country %></div>
+    <div><%= customer[i].phone %></div>
+    <div><%= customer[i].balance %></div>
+    <div><%= customer[i].email %></div>
+    <div><%= customer[i].password %></div>
+    <div> purch_history:
+        <ul>
+            <% for(var j=0; j<customer[i].purch_history.length; j++) {%>
+            <li><%=customer[i].purch_history[j]%></li>
+            <% } %>
+
+        </ul>
+    </div>
+
+
+<% } %>

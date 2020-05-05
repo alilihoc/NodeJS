@@ -1,0 +1,15 @@
+<form action="/postedit" method="post">
+    <% for(var i=0; i<customer.length; i++) {%>
+        <div><input type="text" name="name" value="<%= customer[i].name %>"></div>
+        <div><input type="hidden" name="hidden_id" value="<%= customer[i]._id %>"></div>
+        <div><input type="text" value="<%= customer[i].address %>" name="address"></div>
+        <div><input type="text" value="<%= customer[i].city %>" name="city"></div>
+        <div><input type="text" name="state_province" value="<%= customer[i].state_province %>"></div>
+        <div><input type="text" name="postal_code" value="<%= customer[i].postal_code %>"></div>
+        <div><input type="text" name="country" value="<%= customer[i].country %>"></div>
+        <div><input type="text" name="phone" value="<%= customer[i].phone %>"></div>
+        <div><input type="text" name="email" value="<%= customer[i].email %>"></div>
+        <input id="edit" type="submit" value="Save">
+    <% } %>
+</form>
+

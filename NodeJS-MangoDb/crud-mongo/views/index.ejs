@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MONGO APPS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>May Mongo be with you !</h1>
+
+    <h2>Add a customer</h2>
+
+    <form action="/add" method="POST">
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="address" name="address">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div style="padding-top: 30px;padding-bottom: 30px;">
+        <div class="w50">
+            <form action="search" method="post"><label for="search">Recherche</label><input type="text" name="search">
+                <input type="submit" value="Rechercher">
+            </form>
+        </div>
+        <div class="w50">
+            <form action="/" method="POST">
+                <label for="country">Country</label>
+                <select name="country" id="countries">
+                    <% for(var i=0; i<countries.length; i++) {%>
+                        <option value="<%= countries[i] %>"><%= countries[i] %></option>
+                    <% } %>
+                </select>
+                <input type="submit" name="sub" value="ASC">
+                <input type="submit" name="sub" value="DESC">
+            </form>
+        </div>
+    </div>
+  <table border="1px">
+      <tr>
+          <th>nom</th>
+          <th>adress</th>
+          <th>pays</th>
+          <th>actions</th>
+          <% for(var i=0; i<customers.length; i++) {%>
+              <tr>
+                  <td><%= customers[i].name %></td>
+                  <td><%= customers[i].address %></td>
+                  <td><%= customers[i].country %></td>
+                  <td>
+                      <form action="/del/<%= customers[i]._id %>" method="POST">
+                          <input id="delete" type="submit" value="delete">
+                          <a href="/read/<%= customers[i]._id %>">Read</a>
+                          <a href="/edit/<%= customers[i]._id %>">Edit</a>
+                      </form></td>
+              </tr>
+          <% } %>
+      </tr>
+  </table>
+
+
+
+
+<!-- 
+  <div>
+    <h2>Replace last quote written by Master Yoda with a quote written by Darth Vadar</h2>
+    <button id="update"> Darth Vadar invades! </button>
+  </div>
+-->
+  <script src="main.js"></script>
+
+</body>
+</html>
